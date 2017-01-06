@@ -18,9 +18,9 @@ setInterval(function() {
     var splitHalf = splitIcon.parentNode.cloneNode(true);
     var splitHalfIcon = splitHalf.childNodes[1];
 
-    // Set the background color of the new split button.
-    splitHalfIcon.style.backgroundImage = 'none';
-    splitHalfIcon.style.backgroundColor = '#acd0af';
+    //
+    var imageURL = chrome.extension.getURL('images/split.png');
+    splitHalfIcon.style.backgroundImage = 'url(' + imageURL + ')';
 
     actionsDiv.appendChild(splitHalf);
 
