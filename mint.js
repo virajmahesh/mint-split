@@ -1,6 +1,7 @@
+/**
+ * @returns The transaction amount formatted as a string.
+ */
 function getTransactionAmount() {
-  console.log(document.getElementsByName('amount'));
-  console.log(document.getElementsByName('amount').length);
   return document.getElementsByName('amount')[1].value;
 }
 
@@ -18,7 +19,7 @@ setInterval(function() {
     var splitHalf = splitIcon.parentNode.cloneNode(true);
     var splitHalfIcon = splitHalf.childNodes[1];
 
-    //
+    // Set the background image for the new split button.
     var imageURL = chrome.extension.getURL('images/split.png');
     splitHalfIcon.style.backgroundImage = 'url(' + imageURL + ')';
 
@@ -30,11 +31,19 @@ setInterval(function() {
           var txnAmount = parseFloat(getTransactionAmount());
           var splitAmount = (txnAmount/2).toFixed(2);
 
+          // Enter the split amounts.
           var inputFields = document.getElementsByName('percentAmount');
 
           inputFields[1].value = splitAmount;
           inputFields[2].value = (txnAmount - splitAmount).toFixed(2);
 
+          // Change the category to "Hide from Budget & Trends"
+          var selector = document.getElementsByClassName("down notab")[2];
+          selector.click();
+          var menuOption = document.getElementById("menu-category-40");
+          menuOption.click();
+
+          // Confirm the split transaction.
           var submitButton = document.getElementById('pop-split-submit');
           submitButton.click();
 
