@@ -3,7 +3,7 @@
 
   "name": "Mint Split",
   "description": "Conveniently split Mint transactions in half",
-  "version": "1.0",
+  "version": "1.1",
 
   "content_scripts": [
     {
