@@ -21,5 +21,5 @@
     }
   },
 
-  "web_accessible_resources": ["images/split.png"]
+  "web_accessible_resources": ["images/*.png"]
 }
